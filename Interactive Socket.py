@@ -118,7 +118,7 @@ class TCPSessionService(Thread):
 
 class Session(Thread):
     def run(self):
-        print("Interactive socket v" + ".".join(map(str, version)) + "2026 (c) Scevenate")
+        print("Interactive socket v" + ".".join(map(str, version)) + " 2026 (c) Scevenate")
         while True:
             buffer = input(":").split()
             if not buffer:
