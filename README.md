@@ -1,3 +1,5 @@
 # Interactive Socket
 
-This debug script turns out to be useful in a bunch of occasions. So I made it a tool.
+This script is pretty handy for me, so here it is.
+
+A simple typer cli app for interactive tcp connection. Supports tls / hex IO, useful for debugging / educational purpose.
