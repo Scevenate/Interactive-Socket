@@ -1,4 +1,4 @@
-# Interactive Socket
+# InteractiveSocket
 
 This module forwards socket to stdin & stdout.
 

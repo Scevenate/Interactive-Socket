@@ -1,5 +1,5 @@
 [project]
-name = "Interactive-Socket"
+name = "InteractiveSocket"
 version = "0.3.0"
 description = "A debugging / educational script for interactive socket communication."
 readme = "README.md"
