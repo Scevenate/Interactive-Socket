@@ -1,10 +1,15 @@
 [project]
 name = "Interactive-Socket"
-version = "0.2.0"
+version = "0.3.0"
 description = "A debugging / educational script for interactive socket communication."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "prompt-toolkit>=3.0.52",
     "typer>=0.24.1",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.9",
 ]

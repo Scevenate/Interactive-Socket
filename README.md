@@ -1,7 +1,11 @@
 # Interactive Socket
 
-This script is pretty handy for me, so here it is.
+This module forwards socket to stdin & stdout.
 
-A simple typer / async cli app for interactive socket connection. Supports tls / hex IO, useful for debugging / educational purpose. Current version supports tcp only, but more commands are planned in the future.
+This is a simple cli module that constructs socket sessions with remote TCP / UDP port, made for debugging and educational purposes. TLS / hex IO is supported.
 
-Entry point: either `__main__.py` or `app.py`. Please refer to typer help messages for specifications
+## Quick start
+
+Dependencies: typer, prompt_toolkit
+
+`python3 -m src`
