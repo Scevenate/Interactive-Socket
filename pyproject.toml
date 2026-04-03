@@ -1,7 +1,28 @@
 [project]
 name = "InteractiveSocket"
 version = "0.3.0"
-description = "A debugging / educational script for interactive socket communication."
+authors = [
+    { name = "Scevenate", email = "scevenate@outlook.com" },
+]
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = [
+    "network",
+    "tcp",
+    "udp",
+    "debug",
+    "tool",
+    "interactive",
+    "socket",
+]
+classifiers = [
+    "Environment :: Console",
+    "Topic :: Communications",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+]
+description = "A debugging / educational tool that forwards sockets to stdin & stdout for interactive network communication."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
@@ -9,7 +30,34 @@ dependencies = [
     "typer>=0.24.1",
 ]
 
+[project.urls]
+Repository = "https://github.com/Scevenate/InteractiveSocket"
+
+[project.scripts]
+interactivesocket = "src:app"
+
 [dependency-groups]
+build = [
+    "hatch>=1.16.5",
+]
+deploy = [
+    "twine>=6.2.0",
+]
 dev = [
     "ruff>=0.15.9",
 ]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "src/",
+  "pyproject.toml",
+  "README.md",
+  "LICENSE",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]

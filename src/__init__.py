@@ -1,3 +1,5 @@
+__version__ = "0.3.0"
+
 import typer
 import asyncio
 from .tcp import TCPSession
@@ -16,7 +18,7 @@ def tcp(address: str = typer.Argument(help="IP address / domain name of the serv
     Start an interactive TCP session.
     This command establishes a TCP connection and forwards it to stdin & stdout.
     """
-    silent or print("Interactive Socket v0.2.0, Scevenate (c) 2026")
+    silent or print(f"Interactive Socket v{__version__}, Scevenate (c) 2026")
     asyncio.run(TCPSession(address, port, tls, silent, hex, timeout).run())
 
 @app.command()
@@ -28,5 +30,5 @@ def udp(address: str = typer.Argument(help="IP address / domain name of the serv
     Start an interactive UDP session.
     This command creates a UDP endpoint and allows stdin & stdout interaction.
     """
-    silent or print("Interactive Socket v0.2.0, Scevenate (c) 2026")
+    silent or print(f"Interactive Socket v{__version__}, Scevenate (c) 2026")
     asyncio.run(UDPSession(address, port, silent, hex).run())
