@@ -16,10 +16,8 @@ class _UDPProtocol(asyncio.DatagramProtocol):
         self.silent = silent
         self.hex = hex
     def connection_made(self, transport: asyncio.DatagramTransport) -> None:
-        self.silent or self.silent or print(f"Endpoints created for {self.address}:{self.port}. Use Ctrl+D (EOF) to destroy.")
+        self.silent or self.silent or print(f"Endpoint created for {self.address}:{self.port}. Use Ctrl+D (EOF) to destroy.")
     def datagram_received(self, data: bytes, addr: tuple[str, int]) -> None:
-        if addr != (self.address, self.port):
-            return
         if self.hex:
             print(data.hex())
         else:
@@ -48,7 +46,7 @@ class UDPSession:
         Start the asynchronous UDP session.
         Creates the UDP endpoint and adds write task to the event loop.
         """
-        self.silent or print(f"Creating endpoints for {self.address}:{self.port}...")
+        self.silent or print(f"Creating endpoint for {self.address}:{self.port}...")
         transport, protocol = await asyncio.get_event_loop().create_datagram_endpoint(lambda: _UDPProtocol(self.address, self.port, self.silent, self.hex), remote_addr=(self.address, self.port), family=socket.AF_INET)
         await self._udp_write(transport)
 
@@ -76,6 +74,6 @@ class UDPSession:
                 except ValueError:
                     print("error: Invalid hex string.", file=sys.stderr)
                     continue
-                transport.sendto(data, (self.address, self.port))
+                transport.sendto(data)
             else:
-                transport.sendto(data.encode("utf-8").decode("unicode_escape").encode("utf-8"), (self.address, self.port))
+                transport.sendto(data.encode("utf-8").decode("unicode_escape").encode("utf-8"))
