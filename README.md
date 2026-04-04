@@ -1,4 +1,7 @@
-# InteractiveSocket
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <h1 style="width: max-content;">InteractiveSocket</h1>
+  <a href="https://pypi.org/project/InteractiveSocket/"><img src="https://img.shields.io/pypi/v/InteractiveSocket" alt="PyPI"></a>
+</div>
 
 This module forwards socket to stdin & stdout.
 
